@@ -88,7 +88,7 @@ export function CTA() {
         {/* Buttons */}
         <div className="mt-16 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
           <motion.a
-            href="https://square.link/u/2ieuYQ4k"
+            href="https://square.link/u/o2e9grla?src=sheet"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}

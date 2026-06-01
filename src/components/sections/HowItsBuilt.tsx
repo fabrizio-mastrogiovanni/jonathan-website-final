@@ -59,22 +59,23 @@ export function HowItsBuilt() {
               <FadeUp delay={0.1}>Historias de clientes</FadeUp>
             </div>
           </div>
-          <h2 className="col-span-12 display text-[12vw] leading-[0.88] md:col-span-8 md:text-[7vw]">
-            <SplitText mode="word" variant="mask" duration={1.0} stagger={0.06}>
-              {"What my clients say."}
-            </SplitText>
-            <span className="mt-3 block text-[3vw] italic font-normal text-paper/50 md:text-[1.5vw]">
+          <div className="col-span-12 md:col-span-8">
+            <h2 className="display text-[12vw] leading-[0.88] md:text-[7vw]">
               <SplitText
                 mode="word"
-                variant="rise"
-                duration={0.8}
-                stagger={0.04}
-                delay={0.3}
+                variant="mask"
+                duration={1.0}
+                stagger={0.06}
               >
-                Lo que mis clientes dicen.
+                {"What my clients say."}
               </SplitText>
-            </span>
-          </h2>
+            </h2>
+            <FadeUp delay={0.5} className="mt-4">
+              <p className="text-[3vw] italic leading-[1.2] tracking-normal text-paper/50 md:text-[1.4vw]">
+                Lo que mis clientes dicen.
+              </p>
+            </FadeUp>
+          </div>
         </div>
 
         {/* Featured testimonial */}

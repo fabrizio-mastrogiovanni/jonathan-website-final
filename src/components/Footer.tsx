@@ -49,7 +49,7 @@ export function Footer() {
           </div>
           <div className="mt-3 flex flex-col gap-1.5">
             <a
-              href="https://square.link/u/2ieuYQ4k"
+              href="https://square.link/u/o2e9grla?src=sheet"
               target="_blank"
               rel="noopener noreferrer"
               className="text-paper transition-colors hover:text-gold"

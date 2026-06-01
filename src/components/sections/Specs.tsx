@@ -35,7 +35,7 @@ const services: Service[] = [
     priceSuffixEs: "Pago único",
     ctaEn: "BOOK YOUR SESSION →",
     ctaEs: "Reserva tu sesión",
-    href: "https://square.link/u/2ieuYQ4k",
+    href: "https://square.link/u/o2e9grla?src=sheet",
     featured: true,
   },
   {
@@ -99,22 +99,23 @@ export function Specs() {
               <FadeUp delay={0.1}>Servicios</FadeUp>
             </div>
           </div>
-          <h2 className="col-span-12 display text-[12vw] leading-[0.88] md:col-span-9 md:text-[8vw]">
-            <SplitText mode="word" variant="mask" duration={1.0} stagger={0.06}>
-              {"Two ways\nto begin."}
-            </SplitText>
-            <span className="mt-3 block text-[3vw] italic font-normal text-muted md:text-[1.5vw]">
+          <div className="col-span-12 md:col-span-9">
+            <h2 className="display text-[12vw] leading-[0.88] md:text-[8vw]">
               <SplitText
                 mode="word"
-                variant="rise"
-                duration={0.8}
-                stagger={0.04}
-                delay={0.35}
+                variant="mask"
+                duration={1.0}
+                stagger={0.06}
               >
-                Dos formas de comenzar.
+                {"Two ways\nto begin."}
               </SplitText>
-            </span>
-          </h2>
+            </h2>
+            <FadeUp delay={0.5} className="mt-4">
+              <p className="text-[3vw] italic leading-[1.2] tracking-normal text-muted md:text-[1.4vw]">
+                Dos formas de comenzar.
+              </p>
+            </FadeUp>
+          </div>
         </div>
 
         <div className="flex flex-col gap-px bg-rule">
