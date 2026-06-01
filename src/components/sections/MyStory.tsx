@@ -66,49 +66,16 @@ const chapters: Chapter[] = [
 export function MyStory() {
   return (
     <section id="my-story" className="relative bg-paper">
-      {/* Eyebrow header */}
-      <div className="border-b border-rule px-6 py-14 md:px-10 md:py-20">
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-4">
-            <FadeUp>
-              <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
-                — MY STORY
-              </div>
-              <div className="mt-1 font-mono text-[10px] italic tracking-[0.3em] text-muted">
-                Mi historia
-              </div>
-            </FadeUp>
+      {/* Eyebrow header — minimal, no headline */}
+      <div className="border-b border-rule px-6 py-14 md:px-10 md:py-16">
+        <FadeUp>
+          <div className="text-center font-mono text-[11px] tracking-[0.3em] text-gold md:text-left">
+            — MY STORY
           </div>
-          <h2 className="col-span-12 md:col-span-8">
-            <span className="display block text-[10vw] leading-[0.9] md:text-[5.5vw]">
-              <SplitText
-                mode="word"
-                variant="mask"
-                duration={1.0}
-                stagger={0.05}
-              >
-                From hotel bathrooms
-              </SplitText>
-              <br />
-              <span className="text-gold">
-                <SplitText
-                  mode="word"
-                  variant="mask"
-                  duration={1.0}
-                  stagger={0.05}
-                  delay={0.3}
-                >
-                  to top salesman.
-                </SplitText>
-              </span>
-            </span>
-            <FadeUp delay={0.7} className="mt-5">
-              <p className="text-[3vw] italic leading-[1.2] tracking-normal text-muted md:text-[1.4vw]">
-                De los baños de hotel al mejor vendedor.
-              </p>
-            </FadeUp>
-          </h2>
-        </div>
+          <div className="mt-2 text-center font-mono text-[10px] italic tracking-[0.3em] text-muted md:text-left">
+            Mi historia
+          </div>
+        </FadeUp>
       </div>
 
       {/* Chapters timeline */}
