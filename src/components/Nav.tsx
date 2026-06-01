@@ -18,15 +18,12 @@ export function Nav() {
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
           JONATHAN LÓPEZ
         </a>
-        <nav className="hidden gap-8 text-[11px] tracking-[0.3em] md:flex">
-          <a
-            href="#credenciales"
-            className="transition-opacity hover:opacity-60"
-          >
-            PRESS
-          </a>
+        <nav className="hidden gap-7 text-[11px] tracking-[0.3em] lg:flex">
           <a href="#founder" className="transition-opacity hover:opacity-60">
-            FOUNDER
+            ABOUT
+          </a>
+          <a href="#my-story" className="transition-opacity hover:opacity-60">
+            STORY
           </a>
           <a href="#servicios" className="transition-opacity hover:opacity-60">
             SERVICES
@@ -36,6 +33,9 @@ export function Nav() {
             className="transition-opacity hover:opacity-60"
           >
             STORIES
+          </a>
+          <a href="#booking" className="transition-opacity hover:opacity-60">
+            BOOKING
           </a>
         </nav>
         <a

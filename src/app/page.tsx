@@ -1,10 +1,14 @@
 import { Nav } from "@/components/Nav";
 import { Opening } from "@/components/sections/Opening";
 import { Credentials } from "@/components/sections/Credentials";
+import { Participations } from "@/components/sections/Participations";
 import { Founder } from "@/components/sections/Founder";
+import { MyStory } from "@/components/sections/MyStory";
 import { Specs } from "@/components/sections/Specs";
 import { Editorial } from "@/components/sections/Editorial";
 import { HowItsBuilt } from "@/components/sections/HowItsBuilt";
+import { Merchandise } from "@/components/sections/Merchandise";
+import { Booking } from "@/components/sections/Booking";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/Footer";
 
@@ -14,10 +18,14 @@ export default function Page() {
       <Nav />
       <Opening />
       <Credentials />
+      <Participations />
       <Founder />
+      <MyStory />
       <Specs />
       <Editorial />
       <HowItsBuilt />
+      <Merchandise />
+      <Booking />
       <CTA />
       <Footer />
     </main>
