@@ -3,12 +3,12 @@ import "./globals.css";
 import { LenisProvider } from "@/components/LenisProvider";
 
 export const metadata: Metadata = {
-  title: "Jonathan López · Estratega de Negociación Automotriz",
+  title: "Jonathan López · Automotive Negotiation Strategist",
   description:
-    "Yo no vendo autos, los compro por ti. 15 años convirtiendo la compra de un auto en una negociación estructurada — no una transacción improvisada.",
+    "I don't sell cars. I buy them for you. 15 years turning car buying into a structured negotiation — not an improvised transaction.",
   openGraph: {
-    title: "Jonathan López · Estratega de Negociación Automotriz",
-    description: "Yo no vendo autos, los compro por ti.",
+    title: "Jonathan López · Automotive Negotiation Strategist",
+    description: "I don't sell cars. I buy them for you.",
     type: "website",
   },
 };
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body className="bg-paper text-ink antialiased">
         <LenisProvider>{children}</LenisProvider>
       </body>

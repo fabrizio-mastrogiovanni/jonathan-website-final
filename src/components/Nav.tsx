@@ -19,27 +19,30 @@ export function Nav() {
           JONATHAN LÓPEZ
         </a>
         <nav className="hidden gap-8 text-[11px] tracking-[0.3em] md:flex">
-          <a href="#film" className="hover:opacity-60 transition-opacity">
-            FILM
+          <a
+            href="#credenciales"
+            className="transition-opacity hover:opacity-60"
+          >
+            PRESS
           </a>
-          <a href="#servicios" className="hover:opacity-60 transition-opacity">
-            SERVICIOS
+          <a href="#servicios" className="transition-opacity hover:opacity-60">
+            SERVICES
           </a>
-          <a href="#sobre" className="hover:opacity-60 transition-opacity">
-            SOBRE
+          <a href="#sobre" className="transition-opacity hover:opacity-60">
+            ABOUT
           </a>
           <a
             href="#testimonios"
-            className="hover:opacity-60 transition-opacity"
+            className="transition-opacity hover:opacity-60"
           >
-            TESTIMONIOS
+            STORIES
           </a>
         </nav>
         <a
           href="#cta"
-          className="text-[11px] tracking-[0.3em] hover:opacity-60 transition-opacity"
+          className="text-[11px] tracking-[0.3em] transition-opacity hover:opacity-60"
         >
-          RESERVAR →
+          BOOK →
         </a>
       </div>
     </motion.header>

@@ -5,57 +5,83 @@ import { FadeUp } from "@/components/FadeUp";
 import { Marquee } from "@/components/Marquee";
 
 interface Service {
-  eyebrow: string;
-  title: string;
-  description: string;
+  eyebrowEn: string;
+  eyebrowEs: string;
+  titleEn: string;
+  titleEs: string;
+  descriptionEn: string;
+  descriptionEs: string;
   price: string;
-  priceSuffix: string;
-  cta: { label: string; href: string };
+  priceSuffixEn: string;
+  priceSuffixEs: string;
+  ctaEn: string;
+  ctaEs: string;
+  href: string;
   featured?: boolean;
 }
 
 const services: Service[] = [
   {
-    eyebrow: "SESIÓN DE ASESORÍA PERSONAL",
-    title: "La experiencia completa.",
-    description:
+    eyebrowEn: "PERSONAL ADVISORY SESSION",
+    eyebrowEs: "Sesión de asesoría personal",
+    titleEn: "The complete experience.",
+    titleEs: "La experiencia completa.",
+    descriptionEn:
+      "Two negotiations for the price of one, with NEO Advisor chatbot included.",
+    descriptionEs:
       "2 negociaciones por el precio de 1 y el Chatbot NEO Advisor incluido.",
     price: "$999.99",
-    priceSuffix: "PAGO ÚNICO",
-    cta: { label: "RESERVA TU SESIÓN →", href: "https://wa.me/13053551234" },
+    priceSuffixEn: "ONE-TIME PAYMENT",
+    priceSuffixEs: "Pago único",
+    ctaEn: "BOOK YOUR SESSION →",
+    ctaEs: "Reserva tu sesión",
+    href: "https://wa.me/13053551234",
     featured: true,
   },
   {
-    eyebrow: "ASESOR NEURONAL CON IA SINTÉTICA · CAR BUSINESS",
-    title: "NEO Advisor",
-    description:
+    eyebrowEn: "NEURAL AI ADVISOR · CAR BUSINESS",
+    eyebrowEs: "Asesor neuronal con IA · car business",
+    titleEn: "NEO Advisor",
+    titleEs: "NEO Advisor",
+    descriptionEn:
+      "Your personal advisor with AI trained in the car buying business. NEO combines human neural logic, real-time integrations with inventory, financing, and market data — guiding you 24/7 from search to final negotiation.",
+    descriptionEs:
       "Tu asesor personal con IA entrenada en el car buying business. NEO combina lógica neuronal humana, integraciones en tiempo real con inventario, financiamiento y data de mercado, y herramientas expertas que te acompañan paso a paso en tu compra — 24/7, desde la búsqueda hasta la negociación final.",
     price: "$99",
-    priceSuffix: "POR AÑO",
-    cta: { label: "OBTENER ACCESO →", href: "#cta" },
+    priceSuffixEn: "PER YEAR",
+    priceSuffixEs: "Por año",
+    ctaEn: "GET ACCESS →",
+    ctaEs: "Obtener acceso",
+    href: "#cta",
   },
   {
-    eyebrow: "ASESOR NEURONAL CON IA SINTÉTICA · CREDIT REPAIR",
-    title: "NEO Credit Repair Advisor",
-    description:
+    eyebrowEn: "NEURAL AI ADVISOR · CREDIT REPAIR",
+    eyebrowEs: "Asesor neuronal con IA · credit repair",
+    titleEn: "NEO Credit Repair Advisor",
+    titleEs: "NEO Credit Repair Advisor",
+    descriptionEn:
+      "Your credit decides what you pay for your next car. NEO Credit Repair Advisor is a neural AI advisor with direct integrations that cleans, rebuilds, and maximizes your credit profile before you walk into a dealership.",
+    descriptionEs:
       "Tu crédito decide cuánto pagas por tu próximo auto. NEO Credit Repair Advisor es un asesor neuronal con IA sintética e integraciones directas que limpia, reconstruye y maximiza tu perfil crediticio antes de que entres a un dealer.",
     price: "$99",
-    priceSuffix: "POR AÑO",
-    cta: { label: "OBTENER ACCESO →", href: "#cta" },
+    priceSuffixEn: "PER YEAR",
+    priceSuffixEs: "Por año",
+    ctaEn: "GET ACCESS →",
+    ctaEs: "Obtener acceso",
+    href: "#cta",
   },
 ];
 
 export function Specs() {
   return (
     <section id="servicios" className="relative bg-paper">
-      {/* Brutal marquee divider */}
       <div className="border-y border-rule py-6">
         <Marquee
           items={[
-            "NEGOCIACIÓN ESTRUCTURADA",
-            "ANÁLISIS DE CONTRATOS",
-            "ESTRATEGIA FINANCIERA",
-            "REPRESENTACIÓN DEL COMPRADOR",
+            "STRUCTURED NEGOTIATION",
+            "CONTRACT ANALYSIS",
+            "FINANCIAL STRATEGY",
+            "BUYER REPRESENTATION",
             "NEO ADVISOR",
           ]}
           speed={50}
@@ -67,17 +93,30 @@ export function Specs() {
         <div className="mb-20 grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3">
             <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
-              <FadeUp>02 · SERVICIOS</FadeUp>
+              <FadeUp>02 · SERVICES</FadeUp>
+            </div>
+            <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted">
+              <FadeUp delay={0.1}>Servicios</FadeUp>
             </div>
           </div>
           <h2 className="col-span-12 display text-[12vw] leading-[0.88] md:col-span-9 md:text-[8vw]">
             <SplitText mode="word" variant="mask" duration={1.0} stagger={0.06}>
-              {"Dos formas\nde comenzar."}
+              {"Two ways\nto begin."}
             </SplitText>
+            <span className="mt-3 block text-[3vw] italic font-normal text-muted md:text-[1.5vw]">
+              <SplitText
+                mode="word"
+                variant="rise"
+                duration={0.8}
+                stagger={0.04}
+                delay={0.35}
+              >
+                Dos formas de comenzar.
+              </SplitText>
+            </span>
           </h2>
         </div>
 
-        {/* Services list — vertical, brutal */}
         <div className="flex flex-col gap-px bg-rule">
           {services.map((s, i) => (
             <FadeUp
@@ -95,20 +134,31 @@ export function Specs() {
               <div className="grid grid-cols-12 gap-6">
                 <div className="col-span-12 md:col-span-8">
                   <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
-                    {s.eyebrow}
+                    {s.eyebrowEn}
                   </div>
-                  <h3 className="display mt-4 text-[8vw] leading-[0.95] md:text-[4vw]">
-                    {s.title}
+                  <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted">
+                    {s.eyebrowEs}
+                  </div>
+                  <h3 className="display mt-5 text-[8vw] leading-[0.95] md:text-[4vw]">
+                    {s.titleEn}
                   </h3>
-                  <p className="mt-5 max-w-xl text-[14px] leading-[1.55] tracking-tight text-muted md:text-[15px]">
-                    {s.description}
+                  {s.titleEn !== s.titleEs && (
+                    <div className="mt-1 text-[3vw] italic text-muted md:text-[1.2vw]">
+                      {s.titleEs}
+                    </div>
+                  )}
+                  <p className="mt-5 max-w-xl text-[14px] leading-[1.55] tracking-tight text-ink md:text-[15px]">
+                    {s.descriptionEn}
+                  </p>
+                  <p className="mt-3 max-w-xl text-[12px] italic leading-[1.55] tracking-tight text-muted md:text-[13px]">
+                    {s.descriptionEs}
                   </p>
                   <div className="mt-8">
                     <a
-                      href={s.cta.href}
-                      target={s.cta.href.startsWith("http") ? "_blank" : undefined}
+                      href={s.href}
+                      target={s.href.startsWith("http") ? "_blank" : undefined}
                       rel={
-                        s.cta.href.startsWith("http")
+                        s.href.startsWith("http")
                           ? "noopener noreferrer"
                           : undefined
                       }
@@ -118,7 +168,10 @@ export function Specs() {
                           : "inline-block border border-ink/40 px-7 py-4 font-mono text-[11px] tracking-[0.3em] text-ink transition-colors hover:border-gold hover:text-gold"
                       }
                     >
-                      {s.cta.label}
+                      {s.ctaEn}
+                      <span className="ml-2 italic opacity-70">
+                        / {s.ctaEs}
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -127,7 +180,10 @@ export function Specs() {
                     {s.price}
                   </div>
                   <div className="mt-3 font-mono text-[10px] tracking-[0.3em] text-muted">
-                    {s.priceSuffix}
+                    {s.priceSuffixEn}
+                  </div>
+                  <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted/70">
+                    {s.priceSuffixEs}
                   </div>
                 </div>
               </div>

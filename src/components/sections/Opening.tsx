@@ -40,7 +40,10 @@ export function Opening() {
 
             {/* Top-left model label */}
             <div className="pointer-events-none absolute left-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white/80 md:left-10 md:top-28">
-              <Scrambler text="JL · ESTRATEGIA AUTOMOTRIZ · 2026" />
+              <Scrambler text="JL · AUTOMOTIVE STRATEGY · 2026" />
+              <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-white/45">
+                Estrategia automotriz
+              </div>
             </div>
 
             {/* Top-right live frame counter */}
@@ -56,19 +59,42 @@ export function Opening() {
               className="pointer-events-none absolute bottom-10 left-6 z-20 max-w-sm text-white/90 md:bottom-14 md:left-10"
             >
               <div className="font-mono text-[10px] tracking-[0.3em] text-[#C9A84C]">
-                — HAZ SCROLL PARA EXPLORAR
+                — SCROLL TO EXPLORE
               </div>
-              <p className="mt-3 text-[14px] leading-[1.35] tracking-tight">
+              <div className="mt-0.5 font-mono text-[9px] italic tracking-[0.3em] text-white/45">
+                Haz scroll para explorar
+              </div>
+              <p className="mt-4 text-[14px] leading-[1.35] tracking-tight">
+                Every car has a thousand parts. I know each one — and I know
+                the fair price it&apos;s worth.
+              </p>
+              <p className="mt-2 text-[11px] italic leading-[1.4] tracking-tight text-white/55">
                 Cada auto tiene mil piezas. Yo conozco cada una — y conozco el
                 precio justo que vale.
               </p>
             </motion.div>
 
-            {/* Mid-scroll labels — disassembly stages, Spanish */}
-            <Stage active={p >= 0.05 && p < 0.25} label="01 · ANATOMÍA EXPUESTA" />
-            <Stage active={p >= 0.25 && p < 0.5} label="02 · CABINA REVELADA" />
-            <Stage active={p >= 0.5 && p < 0.75} label="03 · CHASIS DESCUBIERTO" />
-            <Stage active={p >= 0.75 && p < 0.92} label="04 · MOTOR AL DESCUBIERTO" />
+            {/* Mid-scroll labels — disassembly stages, bilingual */}
+            <Stage
+              active={p >= 0.05 && p < 0.25}
+              en="01 · ANATOMY EXPOSED"
+              es="Anatomía expuesta"
+            />
+            <Stage
+              active={p >= 0.25 && p < 0.5}
+              en="02 · CABIN REVEALED"
+              es="Cabina revelada"
+            />
+            <Stage
+              active={p >= 0.5 && p < 0.75}
+              en="03 · CHASSIS UNCOVERED"
+              es="Chasis descubierto"
+            />
+            <Stage
+              active={p >= 0.75 && p < 0.92}
+              en="04 · POWERTRAIN OUT"
+              es="Motor al descubierto"
+            />
 
             {/* Final reveal: monumental title */}
             <motion.div
@@ -87,7 +113,7 @@ export function Opening() {
                   </SplitText>
                 )}
               </div>
-              <h1 className="display display-tight mt-3 text-[14vw] leading-[0.88] text-white md:text-[10vw]">
+              <h1 className="display display-tight mt-3 text-[12vw] leading-[0.88] text-white md:text-[9vw]">
                 {p >= 0.9 && (
                   <>
                     <span className="block">
@@ -97,7 +123,7 @@ export function Opening() {
                         duration={1.0}
                         stagger={0.04}
                       >
-                        Yo no vendo autos.
+                        I don&apos;t sell cars.
                       </SplitText>
                     </span>
                     <span className="block text-[#C9A84C]">
@@ -108,12 +134,22 @@ export function Opening() {
                         stagger={0.04}
                         delay={0.35}
                       >
-                        Los compro por ti.
+                        I buy them for you.
                       </SplitText>
                     </span>
                   </>
                 )}
               </h1>
+              {p >= 0.95 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                  className="mt-4 text-[2.5vw] italic leading-[1.1] text-white/55 md:text-[1.5vw]"
+                >
+                  Yo no vendo autos. Los compro por ti.
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Bottom-right continue cue */}
@@ -123,7 +159,7 @@ export function Opening() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="pointer-events-none absolute bottom-6 right-6 z-20 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-white/70 md:bottom-10 md:right-10"
             >
-              <span>CONTINÚA</span>
+              <span>CONTINUE / CONTINÚA</span>
               <motion.span
                 aria-hidden
                 animate={{ y: [0, 6, 0] }}
@@ -143,7 +179,15 @@ export function Opening() {
   );
 }
 
-function Stage({ active, label }: { active: boolean; label: string }) {
+function Stage({
+  active,
+  en,
+  es,
+}: {
+  active: boolean;
+  en: string;
+  es: string;
+}) {
   return (
     <motion.div
       initial={false}
@@ -153,9 +197,14 @@ function Stage({ active, label }: { active: boolean; label: string }) {
         filter: active ? "blur(0px)" : "blur(6px)",
       }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="pointer-events-none absolute bottom-10 left-6 z-20 font-mono text-[10px] tracking-[0.3em] text-[#C9A84C] md:bottom-14 md:left-10"
+      className="pointer-events-none absolute bottom-10 left-6 z-20 md:bottom-14 md:left-10"
     >
-      {label}
+      <div className="font-mono text-[10px] tracking-[0.3em] text-[#C9A84C]">
+        {en}
+      </div>
+      <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-white/50">
+        {es}
+      </div>
     </motion.div>
   );
 }
