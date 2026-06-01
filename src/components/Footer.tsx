@@ -49,22 +49,26 @@ export function Footer() {
           </div>
           <div className="mt-3 flex flex-col gap-1.5">
             <a
-              href="#servicios"
+              href="https://square.link/u/2ieuYQ4k"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-paper transition-colors hover:text-gold"
             >
               ADVISORY $999.99
             </a>
             <a
-              href="#servicios"
+              href="https://neo.jonathanlopez.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-paper transition-colors hover:text-gold"
             >
               NEO ADVISOR $99/YR
             </a>
             <a
-              href="#servicios"
+              href="/coming-soon"
               className="text-paper transition-colors hover:text-gold"
             >
-              CREDIT REPAIR $99/YR
+              CREDIT REPAIR · SOON
             </a>
           </div>
         </div>

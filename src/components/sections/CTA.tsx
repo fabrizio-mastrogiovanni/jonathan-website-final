@@ -88,7 +88,7 @@ export function CTA() {
         {/* Buttons */}
         <div className="mt-16 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
           <motion.a
-            href="https://wa.me/13053551234"
+            href="https://square.link/u/2ieuYQ4k"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
@@ -104,7 +104,9 @@ export function CTA() {
             </span>
           </motion.a>
           <motion.a
-            href="#cta"
+            href="https://neo.jonathanlopez.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}

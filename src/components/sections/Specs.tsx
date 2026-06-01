@@ -35,7 +35,7 @@ const services: Service[] = [
     priceSuffixEs: "Pago único",
     ctaEn: "BOOK YOUR SESSION →",
     ctaEs: "Reserva tu sesión",
-    href: "https://wa.me/13053551234",
+    href: "https://square.link/u/2ieuYQ4k",
     featured: true,
   },
   {
@@ -52,7 +52,7 @@ const services: Service[] = [
     priceSuffixEs: "Por año",
     ctaEn: "GET ACCESS →",
     ctaEs: "Obtener acceso",
-    href: "#cta",
+    href: "https://neo.jonathanlopez.com/",
   },
   {
     eyebrowEn: "NEURAL AI ADVISOR · CREDIT REPAIR",
@@ -66,9 +66,9 @@ const services: Service[] = [
     price: "$99",
     priceSuffixEn: "PER YEAR",
     priceSuffixEs: "Por año",
-    ctaEn: "GET ACCESS →",
-    ctaEs: "Obtener acceso",
-    href: "#cta",
+    ctaEn: "GET NOTIFIED →",
+    ctaEs: "Notificarme",
+    href: "/coming-soon",
   },
 ];
 

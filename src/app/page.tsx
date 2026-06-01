@@ -1,6 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Opening } from "@/components/sections/Opening";
 import { Credentials } from "@/components/sections/Credentials";
+import { Founder } from "@/components/sections/Founder";
 import { Specs } from "@/components/sections/Specs";
 import { Editorial } from "@/components/sections/Editorial";
 import { HowItsBuilt } from "@/components/sections/HowItsBuilt";
@@ -13,6 +14,7 @@ export default function Page() {
       <Nav />
       <Opening />
       <Credentials />
+      <Founder />
       <Specs />
       <Editorial />
       <HowItsBuilt />

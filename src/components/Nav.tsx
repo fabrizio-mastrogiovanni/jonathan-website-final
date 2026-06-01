@@ -25,11 +25,11 @@ export function Nav() {
           >
             PRESS
           </a>
+          <a href="#founder" className="transition-opacity hover:opacity-60">
+            FOUNDER
+          </a>
           <a href="#servicios" className="transition-opacity hover:opacity-60">
             SERVICES
-          </a>
-          <a href="#sobre" className="transition-opacity hover:opacity-60">
-            ABOUT
           </a>
           <a
             href="#testimonios"
