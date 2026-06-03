@@ -4,6 +4,7 @@ import { Credentials } from "@/components/sections/Credentials";
 import { Participations } from "@/components/sections/Participations";
 import { Founder } from "@/components/sections/Founder";
 import { MyStory } from "@/components/sections/MyStory";
+import { Academy } from "@/components/sections/Academy";
 import { Specs } from "@/components/sections/Specs";
 import { Editorial } from "@/components/sections/Editorial";
 import { HowItsBuilt } from "@/components/sections/HowItsBuilt";
@@ -21,6 +22,7 @@ export default function Page() {
       <Participations />
       <Founder />
       <MyStory />
+      <Academy />
       <Specs />
       <Editorial />
       <HowItsBuilt />
