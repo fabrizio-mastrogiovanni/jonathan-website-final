@@ -16,7 +16,7 @@ export function Opening() {
       id="top"
       className="relative bg-[#0a0908]"
       style={{
-        backgroundImage: "url(/frames/frame-001.jpg)",
+        backgroundImage: "url(/frames/frame-001.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -24,7 +24,7 @@ export function Opening() {
       <FrameSequence
         total={121}
         pathPrefix="/frames/frame-"
-        ext="jpg"
+        ext="webp"
         scrollLength={4}
         bgClassName="bg-[#0a0908]"
       >

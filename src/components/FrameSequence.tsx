@@ -12,13 +12,16 @@ if (typeof window !== "undefined") {
 interface FrameSequenceProps {
   total: number;
   pathPrefix?: string;
-  ext?: "jpg" | "jpeg" | "webp" | "png";
+  ext?: "jpg" | "jpeg" | "webp" | "png" | "avif";
   /** Scroll length multiplier (1 = one viewport of scroll). Larger = slower. */
   scrollLength?: number;
   className?: string;
   bgClassName?: string;
   /** Optional overlays positioned over the canvas, given scroll progress 0..1 */
   children?: (progress: number) => React.ReactNode;
+  /** Maximum DPR for the canvas. Cap at 2 for retina sharpness without
+      doubling GPU memory on 3x displays. Default 2. Use 1 to disable DPR. */
+  maxDpr?: number;
 }
 
 /**
@@ -34,6 +37,7 @@ export function FrameSequence({
   className,
   bgClassName = "bg-ink",
   children,
+  maxDpr = 2,
 }: FrameSequenceProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -73,20 +77,31 @@ export function FrameSequence({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total, pathPrefix, ext]);
 
-  /* ---------- canvas resize ---------- */
+  /* ---------- canvas resize (DPR-aware for Retina sharpness) ---------- */
   useEffect(() => {
     const resize = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // redraw whatever the current ScrollTrigger frame is
+
+      // Auto-cap DPR on low-end devices to avoid scroll jank:
+      //  - <= 2 CPU cores → cap at 1 (use raw pixels, fast)
+      //  - 3–5 cores → cap at 1.5 (some retina benefit, modest GPU cost)
+      //  - >= 6 cores → use maxDpr (typically 2, full retina sharpness)
+      const cores = navigator.hardwareConcurrency || 4;
+      const dprCap = cores <= 2 ? 1 : cores <= 5 ? 1.5 : maxDpr;
+      const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
+
+      canvas.width = Math.round(window.innerWidth * dpr);
+      canvas.height = Math.round(window.innerHeight * dpr);
+      // CSS size stays at viewport (set via className) — browser scales
+      // the internal pixel buffer down for crisp Retina output.
+
       drawFrame(currentFrameRef.current);
     };
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, []);
+  }, [maxDpr]);
 
   /* ---------- frame draw (source-crop cover) ---------- */
   const currentFrameRef = useRef(0);
@@ -193,7 +208,7 @@ export function FrameSequence({
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full"
-          aria-label="Lexus GX550 scroll sequence"
+          aria-label="Cadillac Escalade V scroll sequence"
         />
         {/* Loading indicator */}
         {loaded < total && (
