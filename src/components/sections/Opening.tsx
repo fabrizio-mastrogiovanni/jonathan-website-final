@@ -30,6 +30,27 @@ export function Opening() {
       >
         {(p) => (
           <>
+            {/* Dark gradient veil — TOP — so the HUD text stays readable
+                over bright frames (concrete bunker / golden hour highlights) */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[40vh]"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%)",
+              }}
+            />
+
+            {/* Dark gradient veil — BOTTOM — for the headline + caption area */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45vh]"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)",
+              }}
+            />
+
             {/* Progress hairline — top, gold-tinted */}
             <div className="pointer-events-none absolute left-0 right-0 top-0 z-20 h-px bg-white/10">
               <div
@@ -39,15 +60,15 @@ export function Opening() {
             </div>
 
             {/* Top-left model label */}
-            <div className="pointer-events-none absolute left-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white/80 md:left-10 md:top-28">
+            <div className="pointer-events-none absolute left-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white md:left-10 md:top-28">
               <Scrambler text="JL · AUTOMOTIVE STRATEGY · 2026" />
-              <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-white/45">
+              <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-white/65">
                 Estrategia automotriz
               </div>
             </div>
 
             {/* Top-right live frame counter */}
-            <div className="pointer-events-none absolute right-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white/80 md:right-10 md:top-28">
+            <div className="pointer-events-none absolute right-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white md:right-10 md:top-28">
               FRAME {String(Math.round(p * 120) + 1).padStart(3, "0")} / 121
             </div>
 

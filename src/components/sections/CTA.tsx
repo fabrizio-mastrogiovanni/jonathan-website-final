@@ -69,7 +69,7 @@ export function CTA() {
         {/* Guarantees row */}
         <div className="mx-auto mt-20 grid max-w-3xl grid-cols-1 gap-px border-y border-rule bg-rule md:grid-cols-3">
           <Guarantee
-            value="48h"
+            value="1h"
             en="GUARANTEED RESPONSE"
             es="Respuesta garantizada"
           />

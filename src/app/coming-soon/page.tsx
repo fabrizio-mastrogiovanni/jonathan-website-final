@@ -156,7 +156,7 @@ export default function ComingSoonPage() {
                 WHATSAPP →
               </a>
               <a
-                href="https://instagram.com/jonathanlopez"
+                href="https://www.instagram.com/byjonathanlopez/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-ink transition-colors hover:text-gold"

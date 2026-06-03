@@ -68,10 +68,10 @@ const participations: Participation[] = [
   {
     numEn: "07",
     numEs: "07",
-    titleEn: "Emmy Nominee · Suncoast Chapter",
-    titleEs: "Nominado al Emmy · Capítulo Suncoast",
+    titleEn: "EMMY Social Documentary submitted • Suncoast chapter",
+    titleEs: "Documental social sometido al Emmy capítulo suncoast",
     contextEn:
-      "Documentary currently nominated for the Suncoast Regional Emmy Awards",
+      "Documentary currently submitted to the Suncoast Regional Emmy Awards",
     contextEs:
       "Documental actualmente postulado a los Premios Emmy Regionales Suncoast",
   },
