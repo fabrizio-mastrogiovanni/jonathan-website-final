@@ -59,16 +59,23 @@ export function Opening() {
               />
             </div>
 
-            {/* Top-left model label */}
-            <div className="pointer-events-none absolute left-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white md:left-10 md:top-28">
-              <Scrambler text="JL · AUTOMOTIVE STRATEGY · 2026" />
+            {/* Top-left model label — shorter on mobile to avoid overlap */}
+            <div className="pointer-events-none absolute left-6 top-24 z-20 font-mono text-[9px] tracking-[0.3em] text-white md:left-10 md:top-28 md:text-[10px]">
+              {/* Mobile: shorter label */}
+              <span className="md:hidden">
+                <Scrambler text="JL · STRATEGY · 2026" />
+              </span>
+              {/* Desktop: full label */}
+              <span className="hidden md:inline">
+                <Scrambler text="JL · AUTOMOTIVE STRATEGY · 2026" />
+              </span>
               <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-white/65">
                 Estrategia automotriz
               </div>
             </div>
 
-            {/* Top-right live frame counter */}
-            <div className="pointer-events-none absolute right-6 top-24 z-20 font-mono text-[10px] tracking-[0.3em] text-white md:right-10 md:top-28">
+            {/* Top-right live frame counter — hidden on mobile to prevent overlap */}
+            <div className="pointer-events-none absolute right-6 top-24 z-20 hidden font-mono text-[10px] tracking-[0.3em] text-white sm:block md:right-10 md:top-28">
               FRAME {String(Math.round(p * 120) + 1).padStart(3, "0")} / 121
             </div>
 

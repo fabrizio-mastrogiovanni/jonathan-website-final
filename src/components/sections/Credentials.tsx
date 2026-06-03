@@ -15,7 +15,7 @@ interface Credential {
   spanClass?: string;
 }
 
-/** Forbes México — red background with white serif "Forbes" + small "MÉXICO" tag */
+/** Forbes México — black background with white serif "Forbes" + small "MÉXICO" tag */
 function ForbesMexicoLogo() {
   return (
     <svg
@@ -24,7 +24,7 @@ function ForbesMexicoLogo() {
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Forbes México"
     >
-      <rect width="200" height="100" fill="#A30000" rx="2" />
+      <rect width="200" height="100" fill="#000" rx="2" />
       <text
         x="100"
         y="68"
@@ -52,25 +52,56 @@ function ForbesMexicoLogo() {
   );
 }
 
-/** Univision — stylized italic wordmark */
+/** Univision — colored U mark (4 quadrants) + "univision" text below */
 function UnivisionLogo() {
   return (
     <svg
-      viewBox="0 0 200 70"
-      className="h-full w-auto max-h-14 md:max-h-16"
+      viewBox="0 0 200 240"
+      className="h-full w-auto max-h-24 md:max-h-28"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Univision"
     >
+      <defs>
+        {/* U-shape outline: two thick vertical bars connected by a rounded bottom,
+            with an open notch at the top center (the classic U opening) */}
+        <clipPath id="univision-u">
+          <path
+            d="
+              M 0 0
+              L 65 0
+              L 65 105
+              Q 65 130 100 130
+              Q 135 130 135 105
+              L 135 0
+              L 200 0
+              L 200 125
+              Q 200 195 100 195
+              Q 0 195 0 125
+              Z
+            "
+          />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#univision-u)">
+        {/* Top-left: magenta */}
+        <rect x="0" y="0" width="100" height="100" fill="#C8338C" />
+        {/* Top-right: green */}
+        <rect x="100" y="0" width="100" height="100" fill="#3DB66E" />
+        {/* Bottom-left: red */}
+        <rect x="0" y="100" width="100" height="100" fill="#D63E3E" />
+        {/* Bottom-right: blue */}
+        <rect x="100" y="100" width="100" height="100" fill="#2E3FBF" />
+      </g>
+      {/* "univision" wordmark below */}
       <text
         x="100"
-        y="48"
+        y="232"
         textAnchor="middle"
-        fill="currentColor"
-        fontFamily="'Helvetica Neue', Arial, sans-serif"
-        fontStyle="italic"
+        fill="#4D4D4D"
+        fontFamily="'Helvetica Neue', Arial Black, sans-serif"
         fontWeight="900"
-        fontSize="40"
-        letterSpacing="-2"
+        fontSize="34"
+        letterSpacing="-1"
       >
         univision
       </text>
