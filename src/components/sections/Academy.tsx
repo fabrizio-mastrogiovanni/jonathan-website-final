@@ -306,7 +306,9 @@ export function Academy() {
         {/* CTA */}
         <FadeUp delay={0.4} className="mt-16 text-center md:mt-20">
           <motion.a
-            href="/coming-soon"
+            href="https://square.link/u/5G3dLO7H?src=sheet"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
