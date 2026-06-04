@@ -6,6 +6,7 @@ import { Founder } from "@/components/sections/Founder";
 import { MyStory } from "@/components/sections/MyStory";
 import { Academy } from "@/components/sections/Academy";
 import { Specs } from "@/components/sections/Specs";
+import { PersonalCoaching } from "@/components/sections/PersonalCoaching";
 import { Editorial } from "@/components/sections/Editorial";
 import { HowItsBuilt } from "@/components/sections/HowItsBuilt";
 import { Merchandise } from "@/components/sections/Merchandise";
@@ -24,6 +25,7 @@ export default function Page() {
       <MyStory />
       <Academy />
       <Specs />
+      <PersonalCoaching />
       <Editorial />
       <HowItsBuilt />
       <Merchandise />
