@@ -233,6 +233,17 @@ function TierCard({ tier, index }: { tier: Tier; index: number }) {
               {tier.ctaEs}
             </span>
           </motion.a>
+
+          {/* Terms & Conditions link — subtle */}
+          <a
+            href="/membership-terms"
+            className="mt-5 inline-block font-mono text-[10px] tracking-[0.3em] text-muted/70 transition-colors hover:text-gold"
+          >
+            TERMS &amp; CONDITIONS →
+            <span className="ml-1.5 font-mono text-[9px] italic tracking-[0.3em] opacity-70">
+              Términos y Condiciones
+            </span>
+          </a>
         </div>
       </div>
     </FadeUp>
