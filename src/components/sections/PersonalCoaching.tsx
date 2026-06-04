@@ -47,7 +47,7 @@ const tiers: Tier[] = [
     ],
     ctaEn: "GET BRONZE →",
     ctaEs: "Obtener Bronce",
-    href: "#",
+    href: "https://square.link/u/OEYHtbV1?src=sheet",
   },
   {
     key: "gold",
@@ -70,7 +70,7 @@ const tiers: Tier[] = [
     ],
     ctaEn: "GET GOLD →",
     ctaEs: "Obtener Oro",
-    href: "#",
+    href: "https://square.link/u/PUEzZv2x?src=sheet",
     featured: true,
   },
   {
@@ -106,153 +106,20 @@ const tiers: Tier[] = [
     ],
     ctaEn: "GET DIAMOND →",
     ctaEs: "Obtener Diamante",
-    href: "#",
+    href: "https://square.link/u/cMzoTJp3?src=sheet",
   },
 ];
 
-/* ---------------- Visual book cover (CSS-rendered) ---------------- */
+/* ---------------- Visual book cover (real PNG render) ---------------- */
 function TierCover({ tier }: { tier: Tier }) {
-  // Per-tier visual identity — matches the Bronce/Oro/Diamante book renders
-  const covers: Record<
-    TierKey,
-    {
-      bg: string;
-      ring: string;
-      titleColor: string;
-      subtitleColor: string;
-      gemColor: string;
-      footerBg: string;
-      footerText: string;
-      starColor: string;
-    }
-  > = {
-    bronze: {
-      bg: "bg-gradient-to-br from-[#3a2415] via-[#1f1108] to-[#0a0908]",
-      ring: "ring-1 ring-[#c08850]/40",
-      titleColor: "text-[#d4a574]",
-      subtitleColor: "text-[#a68155]",
-      gemColor: "text-[#c08850]",
-      footerBg: "bg-gradient-to-r from-[#5e3d24] via-[#7a4f30] to-[#5e3d24]",
-      footerText: "text-[#fff5e6]",
-      starColor: "text-[#c08850]/60",
-    },
-    gold: {
-      bg: "bg-gradient-to-br from-[#fffaf0] via-[#f0e2c0] to-[#d4b87a]",
-      ring: "ring-2 ring-gold",
-      titleColor: "text-[#0a0908]",
-      subtitleColor: "text-[#5e4a1f]",
-      gemColor: "text-gold",
-      footerBg: "bg-gradient-to-r from-[#7a5e1f] via-gold to-[#7a5e1f]",
-      footerText: "text-[#0a0908]",
-      starColor: "text-gold/50",
-    },
-    diamond: {
-      bg: "bg-gradient-to-br from-[#1a1612] via-[#0f0c08] to-[#000]",
-      ring: "ring-2 ring-gold/60",
-      titleColor: "text-[#fffaf0]",
-      subtitleColor: "text-[#d4b87a]",
-      gemColor: "text-[#d4d4f0]",
-      footerBg: "bg-gradient-to-r from-[#5e3d1f] via-gold to-[#5e3d1f]",
-      footerText: "text-[#0a0908]",
-      starColor: "text-[#fffaf0]/40",
-    },
-  };
-  const c = covers[tier.key];
-
   return (
-    <div
-      className={`relative aspect-[2/3] w-full overflow-hidden ${c.bg} ${c.ring}`}
-      aria-label={`${tier.nameEn} membership cover`}
-    >
-      {/* Spine — left edge "MEMBRESÍA TIER" vertical */}
-      <div
-        className={`absolute bottom-0 left-0 top-0 flex w-6 items-center justify-center border-r border-current/15 ${c.titleColor} md:w-8`}
-        style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-      >
-        <span className="font-mono text-[7px] tracking-[0.3em] md:text-[8px]">
-          MEMBRESÍA {tier.nameEs.toUpperCase()}
-        </span>
-      </div>
-
-      {/* Diamond pattern overlay (sparkle stars) */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
-          <span
-            key={i}
-            className={`absolute text-[10px] ${c.starColor}`}
-            style={{
-              top: `${((i * 13) % 80) + 5}%`,
-              left: `${((i * 37) % 80) + 12}%`,
-              transform: `scale(${0.5 + (i % 3) * 0.3})`,
-            }}
-          >
-            ✦
-          </span>
-        ))}
-      </div>
-
-      {/* Cover content */}
-      <div className="relative flex h-full flex-col items-center px-6 pl-12 pr-6 pt-7 md:pl-14 md:pt-9">
-        {/* Top label */}
-        <div className={`text-center ${c.titleColor}`}>
-          <div className="font-mono text-[9px] font-bold tracking-[0.2em] md:text-[10px]">
-            PERSONAL COACHING
-          </div>
-          <div className={`mt-1 font-mono text-[7px] tracking-[0.3em] ${c.subtitleColor} md:text-[8px]`}>
-            CAR BUSINESS & BUSINESS STRUCTURE
-          </div>
-        </div>
-
-        {/* Gem */}
-        <div className={`mt-6 text-[1.5rem] ${c.gemColor}`}>♦</div>
-
-        {/* Tier name — monumental */}
-        <div className="mt-3 text-center">
-          <div
-            className={`font-mono text-[10px] tracking-[0.3em] ${c.subtitleColor} md:text-[11px]`}
-          >
-            MEMBRESÍA
-          </div>
-          <div
-            className={`display mt-1 text-[12vw] leading-[0.92] tracking-tightest ${c.titleColor} md:text-[3.2vw]`}
-          >
-            {tier.nameEs.toUpperCase()}
-          </div>
-        </div>
-
-        {/* Price badge */}
-        <div className="mt-auto w-full pt-4">
-          <div
-            className={`mx-auto flex w-full max-w-[140px] flex-col items-center border-y py-3 ${c.subtitleColor}`}
-            style={{ borderColor: "currentColor" }}
-          >
-            <span
-              className={`display text-[2.4rem] leading-none ${c.titleColor} md:text-[2.6rem]`}
-            >
-              {tier.price}
-            </span>
-            <span
-              className={`mt-1 font-mono text-[8px] tracking-[0.3em] ${c.subtitleColor} md:text-[9px]`}
-            >
-              {tier.durationEs.toUpperCase()}
-            </span>
-          </div>
-        </div>
-
-        {/* Footer — author */}
-        <div className={`mt-5 w-full ${c.footerBg} px-3 py-2`}>
-          <div
-            className={`text-center font-mono text-[8px] font-bold tracking-[0.3em] ${c.footerText} md:text-[9px]`}
-          >
-            JONATHAN LÓPEZ
-          </div>
-          <div
-            className={`mt-0.5 text-center font-mono text-[6px] tracking-[0.3em] ${c.footerText} opacity-70 md:text-[7px]`}
-          >
-            INTEGRITY SYSTEM
-          </div>
-        </div>
-      </div>
+    <div className="relative aspect-[2/3] w-full overflow-hidden">
+      <img
+        src={`/coaching/${tier.key === "bronze" ? "bronce" : tier.key === "gold" ? "oro" : "diamante"}.png`}
+        alt={`Membresía ${tier.nameEs} — ${tier.price}`}
+        className="h-full w-full object-cover"
+        loading="lazy"
+      />
     </div>
   );
 }
@@ -348,6 +215,8 @@ function TierCard({ tier, index }: { tier: Tier; index: number }) {
         <div className="mt-10">
           <motion.a
             href={tier.href}
+            target={tier.href.startsWith("http") ? "_blank" : undefined}
+            rel={tier.href.startsWith("http") ? "noopener noreferrer" : undefined}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
