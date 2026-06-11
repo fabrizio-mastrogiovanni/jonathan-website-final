@@ -120,8 +120,8 @@ const sections: Section[] = [
         type: "list",
         items: [
           {
-            en: "Monday through Sunday: 10:30 AM to 10:30 PM (Eastern Time, ET)",
-            es: "Lunes a domingo: 10:30 AM a 10:30 PM (hora del este, ET)",
+            en: "Monday through Sunday: 10:30 AM to 9:30 PM (Eastern Time, ET)",
+            es: "Lunes a domingo: 10:30 AM a 9:30 PM (hora del este, ET)",
           },
         ],
       },
@@ -237,13 +237,13 @@ const sections: Section[] = [
   },
   {
     num: "05",
-    titleEn: "Transferability",
-    titleEs: "Transferibilidad",
+    titleEn: "Non-Transferability",
+    titleEs: "No transferibilidad",
     blocks: [
       {
         type: "paragraph",
-        en: "All memberships and plans are transferable. The original holder may transfer their membership to another person by notifying Jonathan López in writing prior to the transfer. The expiration date does not reset upon transfer. The new beneficiary assumes all terms and conditions.",
-        es: "Todas las membresías y planes son transferibles. El titular original puede transferir su membresía a otra persona notificando por escrito a Jonathan López antes de la transferencia. La fecha de vencimiento no se reinicia con la transferencia. El nuevo beneficiario asume todos los términos y condiciones.",
+        en: "All memberships, plans, and advisory services are strictly personal and NON-TRANSFERABLE. The original holder may not transfer, assign, sell, or share their membership with any other person. The services are tied exclusively to the original purchaser and may only be used by them.",
+        es: "Todas las membresías, planes y servicios de asesoría son estrictamente personales y NO TRANSFERIBLES. El titular original no puede transferir, ceder, vender ni compartir su membresía con ninguna otra persona. Los servicios están vinculados exclusivamente al comprador original y solo pueden ser utilizados por este.",
       },
     ],
   },
