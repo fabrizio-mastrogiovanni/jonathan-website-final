@@ -89,10 +89,33 @@ export function Footer() {
           <div className="mt-1 text-paper/60">AI · Synthetic Negotiation</div>
         </div>
       </div>
+      {/* Legal row — links to terms pages */}
+      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-paper/15 px-6 py-5 font-mono text-[10px] tracking-[0.3em] text-paper/50 md:px-10">
+        <a
+          href="/terms"
+          className="transition-colors hover:text-gold"
+        >
+          PRIVACY & CONSENT
+          <span className="ml-1.5 italic opacity-60">
+            Privacidad y consentimiento
+          </span>
+        </a>
+        <span className="text-paper/20">·</span>
+        <a
+          href="/membership-terms"
+          className="transition-colors hover:text-gold"
+        >
+          MEMBERSHIP TERMS
+          <span className="ml-1.5 italic opacity-60">
+            Términos de membresía
+          </span>
+        </a>
+      </div>
+
       <div className="flex flex-col items-center justify-between gap-1 border-t border-paper/15 px-6 py-6 font-mono text-[10px] tracking-[0.3em] text-paper/40 md:flex-row md:px-10">
         <span>© 2026 — JONATHAN LÓPEZ · ALL RIGHTS RESERVED</span>
         <span className="text-paper/30 italic">
-          Todos los derechos reservados · v1.1
+          Todos los derechos reservados · v1.2
         </span>
       </div>
     </footer>
