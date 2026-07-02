@@ -11,8 +11,8 @@ interface Pair {
 }
 
 interface SubBlock {
-  type: "subheading" | "paragraph" | "list" | "list-with-lead";
-  // for subheading / paragraph
+  type: "subheading" | "paragraph" | "list" | "list-with-lead" | "notice";
+  // for subheading / paragraph / notice
   en?: string;
   es?: string;
   // for list-with-lead
@@ -22,7 +22,7 @@ interface SubBlock {
 }
 
 interface Section {
-  num: string;
+  num?: string;
   titleEn: string;
   titleEs: string;
   blocks: SubBlock[];
@@ -30,49 +30,112 @@ interface Section {
 
 const sections: Section[] = [
   {
-    num: "01",
     titleEn: "Service Description",
     titleEs: "Descripción del servicio",
     blocks: [
       {
         type: "paragraph",
-        en: "By purchasing any of the plans or memberships offered by Jonathan López through Stellantis Group, LLC and the NEO Car Advisor platform, the client is contracting the following services according to the selected plan:",
-        es: "Al adquirir cualquiera de los planes o membresías ofrecidos por Jonathan López a través de Stellantis Group, LLC y la plataforma NEO Car Advisor, el cliente está contratando los siguientes servicios según el plan seleccionado:",
+        en: "By purchasing any of the plans or memberships offered by Jonathan López — Automotive Negotiation Strategist & Advisory — through Stellantis Group, LLC, the client is contracting the following services according to the selected plan. NEO Car Advisor is the name of the AI chatbot offered within certain plans; the advisor and negotiator throughout is Jonathan López.",
+        es: "Al adquirir cualquiera de los planes o membresías ofrecidos por Jonathan López — Estratega de Negociación Automotriz y Asesoría — a través de Stellantis Group, LLC, el cliente está contratando los siguientes servicios según el plan seleccionado. NEO Car Advisor es el nombre del chatbot con inteligencia artificial ofrecido dentro de ciertos planes; el asesor y negociador en todo momento es Jonathan López.",
       },
+
       {
         type: "subheading",
-        en: "FULL MEMBERSHIP — $999 (one-time payment)",
-        es: "Membresía Completa — $999, pago único",
+        en: "A. ADVISORY & NEGOTIATION MEMBERSHIPS (one-time payment)",
+        es: "A. Membresías de Asesoría y Negociación (pago único)",
       },
+
       {
-        type: "paragraph",
-        en: "The client contracts an integrated service that includes:",
-        es: "El cliente contrata un servicio integral que incluye:",
+        type: "subheading",
+        en: "CORPORATE — $1,500 (one-time payment)",
+        es: "Corporativa — $1,500 (pago único)",
       },
       {
         type: "list",
         items: [
           {
-            en: "Personalized online advisory directly with Jonathan López for vehicle purchases.",
-            es: "Asesoría personalizada en línea directamente con Jonathan López para la compra de vehículos.",
+            en: "Validity: 【TO CONFIRM】",
+            es: "Vigencia: 【A CONFIRMAR】",
           },
           {
-            en: "Real-time negotiation: Jonathan accompanies the client during the dealer visit and actively negotiates on their behalf via WhatsApp call, phone call, or WhatsApp written messages.",
-            es: "Negociación en tiempo real: Jonathan acompaña al cliente durante la visita al dealer y negocia activamente en su nombre vía llamada de WhatsApp, llamada telefónica, o mensajes escritos de WhatsApp.",
+            en: "Includes the NEO Bot and the Academy.",
+            es: "Incluye Bot NEO y Academia.",
+          },
+          {
+            en: "Corporate scope / number of vehicles: 【TO BE DEFINED】",
+            es: "Alcance corporativo / número de vehículos: 【A DEFINIR】",
+          },
+        ],
+      },
+
+      {
+        type: "subheading",
+        en: "FULL MEMBERSHIP (GOLD) — $999 (one-time payment)",
+        es: "Membresía Completa (Oro) — $999 (pago único)",
+      },
+      {
+        type: "paragraph",
+        en: "Validity: one (1) year. An integrated service that includes:",
+        es: "Vigencia: un (1) año. Un servicio integral que incluye:",
+      },
+      {
+        type: "list",
+        items: [
+          {
+            en: "Personalized advisory and real-time negotiation directly with Jonathan López for vehicle purchases. Jonathan accompanies the client during the dealer visit and actively negotiates on their behalf via WhatsApp call, phone call, or WhatsApp written messages.",
+            es: "Asesoría personalizada y negociación en tiempo real directamente con Jonathan López para la compra de vehículos. Jonathan acompaña al cliente durante la visita al dealer y negocia activamente en su nombre vía llamada de WhatsApp, llamada telefónica o mensajes escritos de WhatsApp.",
           },
           {
             en: "Five (5) CARFAX reports included to protect the client's purchase.",
             es: "Cinco (5) reportes CARFAX incluidos para la protección de la compra del cliente.",
           },
           {
-            en: "Access to the NEO Car Advisor AI chatbot with integrations, available 24 hours a day, 7 days a week, for real-time consultations when Jonathan is not available.",
-            es: "Acceso al chatbot NEO Car Advisor con inteligencia artificial e integraciones, disponible 24 horas al día, 7 días a la semana, para consultas en tiempo real cuando Jonathan no esté disponible.",
+            en: "Access to the NEO chatbot: the first month is included in the membership payment; from the second month onward it is billed separately at $99.00 per month.",
+            es: "Acceso al chatbot NEO: el primer mes está incluido en el pago de la membresía; a partir del segundo mes se cobra por separado a una tarifa de $99.00 mensuales.",
           },
           {
-            en: "The first month of access to the NEO chatbot is included in the membership payment. From the second month onward, chatbot access is billed separately at $99.00 per month.",
-            es: "El primer mes de acceso al chatbot NEO está incluido en el pago de la membresía. A partir del segundo mes, el acceso al chatbot se cobra por separado a una tarifa de $99.00 mensuales.",
+            en: "Access to the Academy.",
+            es: "Acceso a la Academia.",
+          },
+          {
+            en: "Required for vehicles whose cost EXCEEDS $30,000.",
+            es: "Requerida para vehículos cuyo costo SUPERE los $30,000.",
           },
         ],
+      },
+
+      {
+        type: "subheading",
+        en: "BRONZE — $699 (was $799) (one-time payment)",
+        es: "Bronce — $699 (antes $799), pago único",
+      },
+      {
+        type: "paragraph",
+        en: "Validity: three (3) months.",
+        es: "Vigencia: tres (3) meses.",
+      },
+      {
+        type: "list",
+        items: [
+          {
+            en: "Advisory and negotiation for ONE (1) single vehicle.",
+            es: "Asesoría y negociación para UN (1) solo vehículo.",
+          },
+          {
+            en: "Does NOT include the NEO chatbot or the Academy.",
+            es: "NO incluye chatbot NEO ni Academia.",
+          },
+          {
+            en: "Only for vehicles whose cost does NOT exceed $30,000.",
+            es: "Únicamente para vehículos cuyo costo NO supere los $30,000.",
+          },
+        ],
+      },
+
+      {
+        type: "subheading",
+        en: "B. NEO CAR ADVISOR CHATBOT — MONTHLY PLANS (subscription)",
+        es: "B. Planes Mensuales del Chatbot NEO Car Advisor (suscripción)",
       },
       {
         type: "subheading",
@@ -104,10 +167,15 @@ const sections: Section[] = [
         en: "150 monthly credits for use of the NEO Car Advisor chatbot + 1 monthly CARFAX report + access to all chatbot features.",
         es: "150 créditos mensuales para uso del chatbot NEO Car Advisor + 1 reporte CARFAX mensual + acceso a todas las funciones del chatbot.",
       },
+
+      {
+        type: "notice",
+        en: "The Bronze Membership applies exclusively to vehicles whose cost does not exceed $30,000. If the vehicle exceeds that amount, the client must contract the Full Membership ($999). No exceptions will be made to this limit.",
+        es: "La Membresía Bronce aplica exclusivamente a vehículos cuyo costo no supere los $30,000 dólares. Si el vehículo supera ese monto, el cliente deberá contratar la Membresía Completa ($999). No se realizarán excepciones a este límite.",
+      },
     ],
   },
   {
-    num: "02",
     titleEn: "Personalized Advisory Hours",
     titleEs: "Horario de asesoría personalizada con Jonathan López",
     blocks: [
@@ -120,20 +188,19 @@ const sections: Section[] = [
         type: "list",
         items: [
           {
-            en: "Monday through Sunday: 10:30 AM to 9:30 PM (Eastern Time, ET)",
-            es: "Lunes a domingo: 10:30 AM a 9:30 PM (hora del este, ET)",
+            en: "Monday through Saturday: 10:30 AM to 9:30 PM (Eastern Time, ET)",
+            es: "Lunes a sábado: 10:30 AM a 9:30 PM (hora del este, ET)",
           },
         ],
       },
       {
         type: "paragraph",
-        en: "Outside of personalized advisory hours, the client may consult with the NEO Car Advisor chatbot at any time, 24 hours a day, 7 days a week. The chatbot is designed to answer questions about vehicle purchases, proposal analysis, negotiation strategies, and consumer protection, drawing on the same knowledge base as Jonathan López.",
-        es: "Fuera del horario de asesoría personalizada, el cliente puede consultar con el chatbot NEO Car Advisor en cualquier momento, las 24 horas del día, los 7 días de la semana. El chatbot está diseñado para responder consultas sobre compra de vehículos, análisis de propuestas, estrategias de negociación, y protección del consumidor con la misma base de conocimiento de Jonathan López.",
+        en: "Outside of personalized advisory hours, the client may consult with the NEO Car Advisor chatbot at any time, 24 hours a day, 7 days a week, according to their plan. The chatbot is designed to answer questions about vehicle purchases, proposal analysis, negotiation strategies, and consumer protection, drawing on the same knowledge base as Jonathan López.",
+        es: "Fuera del horario de asesoría personalizada, el cliente puede consultar con el chatbot NEO Car Advisor en cualquier momento, las 24 horas del día, los 7 días de la semana, según su plan. El chatbot está diseñado para responder consultas sobre compra de vehículos, análisis de propuestas, estrategias de negociación, y protección del consumidor con la misma base de conocimiento de Jonathan López.",
       },
     ],
   },
   {
-    num: "03",
     titleEn: "Permitted Communication Channels",
     titleEs: "Medios de comunicación permitidos",
     blocks: [
@@ -163,10 +230,14 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "04",
     titleEn: "Refund & Cancellation Policy",
     titleEs: "Política de reembolsos y cancelaciones",
     blocks: [
+      {
+        type: "paragraph",
+        en: "All payments are final and non-refundable under any circumstances.",
+        es: "Todos los pagos son finales y no reembolsables bajo ninguna circunstancia.",
+      },
       {
         type: "subheading",
         en: "FULL MEMBERSHIP ($999)",
@@ -186,6 +257,28 @@ const sections: Section[] = [
           {
             en: "Access to the NEO chatbot included in the first month is NON-REFUNDABLE.",
             es: "El acceso al chatbot NEO incluido en el primer mes NO es reembolsable.",
+          },
+        ],
+      },
+      {
+        type: "subheading",
+        en: "BRONZE MEMBERSHIP ($699)",
+        es: "Membresía Bronce ($699)",
+      },
+      {
+        type: "list",
+        items: [
+          {
+            en: "The $699 membership payment is NON-REFUNDABLE.",
+            es: "El pago de la membresía de $699 NO ES REEMBOLSABLE.",
+          },
+          {
+            en: "The membership is valid for three (3) months from the date of purchase.",
+            es: "La membresía es válida por tres (3) meses a partir de la fecha de compra.",
+          },
+          {
+            en: "It covers a single negotiation.",
+            es: "Ampara una sola negociación.",
           },
         ],
       },
@@ -236,7 +329,28 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "05",
+    titleEn: "Chargebacks & Payment Disputes",
+    titleEs: "Contracargos y Disputas de Pago",
+    blocks: [
+      {
+        type: "paragraph",
+        en: "By accepting these terms, the Client expressly waives the right to initiate chargebacks, disputes, or payment claims ('chargebacks') with their bank, issuing institution, Afterpay, Square, or any payment processor, with respect to the contracted services. This document, together with the payment receipt, constitutes binding and sufficient proof of acceptance of these terms. In the event of a chargeback, Stellantis Group, LLC will present this documentation to the financial institution or payment processor in order to dismiss the claim. Any attempt at a chargeback will be considered a breach of contract, entitling the provider to pursue the corresponding collection and legal actions.",
+        es: "Al aceptar estos términos, el Cliente renuncia expresamente a iniciar contracargos, disputas o reclamos de pago ('chargebacks') ante su banco, entidad emisora, Afterpay, Square o cualquier procesador de pagos, respecto de los servicios contratados. El presente documento, junto con el comprobante de pago, constituye prueba vinculante y suficiente de la aceptación de estos términos. En caso de contracargo, Stellantis Group, LLC presentará esta documentación ante la entidad financiera o procesador de pagos para desestimar el reclamo. Todo intento de contracargo se considerará incumplimiento contractual, facultando al proveedor a ejercer las acciones de cobro y legales que correspondan.",
+      },
+    ],
+  },
+  {
+    titleEn: "Client Responsibility",
+    titleEs: "Responsabilidad del Cliente",
+    blocks: [
+      {
+        type: "paragraph",
+        en: "The final decision to acquire or not acquire a vehicle rests solely and exclusively with the Client. It is the Client's obligation to notify Jonathan López of any purchase decision before completing it. If the Client decides not to buy the vehicle, for any reason, they will not be entitled to a refund. If the Client acquires the vehicle without prior notification, that decision is their sole responsibility and does not generate a refund. Jonathan López acts as an advisor and negotiator; he is not the owner, seller, or guarantor of the vehicle.",
+        es: "La decisión final de adquirir o no un vehículo corresponde única y exclusivamente al Cliente. Es obligación del Cliente notificar a Jonathan López cualquier decisión de compra antes de concretarla. Si el Cliente decide no comprar el vehículo, por cualquier motivo, no tendrá derecho a reembolso. Si el Cliente adquiere el vehículo sin notificar previamente, dicha decisión es de su exclusiva responsabilidad y no genera reembolso. Jonathan López actúa como asesor y negociador; no es propietario, vendedor ni garante del vehículo.",
+      },
+    ],
+  },
+  {
     titleEn: "Non-Transferability",
     titleEs: "No transferibilidad",
     blocks: [
@@ -248,7 +362,6 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "06",
     titleEn: "Credits & CARFAX Reports",
     titleEs: "Créditos y reportes CARFAX",
     blocks: [
@@ -275,7 +388,6 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "07",
     titleEn: "Nature of Service",
     titleEs: "Naturaleza del servicio",
     blocks: [
@@ -313,7 +425,6 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "08",
     titleEn: "Artificial Intelligence & Chatbot",
     titleEs: "Inteligencia artificial y chatbot",
     blocks: [
@@ -347,7 +458,6 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "09",
     titleEn: "Privacy & Personal Data",
     titleEs: "Privacidad y datos personales",
     blocks: [
@@ -411,7 +521,6 @@ const sections: Section[] = [
     ],
   },
   {
-    num: "10",
     titleEn: "Acceptance of Terms",
     titleEs: "Aceptación de términos",
     blocks: [
@@ -430,6 +539,10 @@ const sections: Section[] = [
           {
             en: "They accept that the membership and payments made are non-refundable.",
             es: "Acepta que la membresía y los pagos realizados no son reembolsables.",
+          },
+          {
+            en: "They waive the right to initiate chargebacks or payment disputes over the contracted services.",
+            es: "Renuncia a iniciar contracargos o disputas de pago sobre los servicios contratados.",
           },
           {
             en: "They understand that canceling the chatbot does not cancel the advisory services of the Full Membership.",
@@ -505,10 +618,10 @@ export default function TermsPage() {
           </FadeUp>
           <FadeUp delay={0.85} className="mt-6">
             <div className="font-mono text-[10px] tracking-[0.3em] text-gold md:text-[11px]">
-              NEO CAR ADVISOR — MEMBERSHIP & SERVICES
+              JONATHAN LÓPEZ — AUTOMOTIVE NEGOTIATION STRATEGIST & ADVISORY
             </div>
             <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted">
-              NEO Car Advisor — Membresía y servicios
+              Jonathan López — Estratega de Negociación Automotriz y Asesoría
             </div>
           </FadeUp>
 
@@ -526,7 +639,7 @@ export default function TermsPage() {
                   Jonathan López
                 </div>
                 <div className="mt-1 text-[11px] italic tracking-tight text-muted">
-                  Integrity System
+                  Automotive Negotiation Strategist & Advisory
                 </div>
               </div>
               <div>
@@ -537,10 +650,10 @@ export default function TermsPage() {
                   Última actualización
                 </div>
                 <div className="mt-3 text-[14px] font-bold tracking-tight text-ink md:text-[15px]">
-                  June 2026
+                  July 2026
                 </div>
                 <div className="mt-1 text-[11px] italic tracking-tight text-muted">
-                  Junio 2026
+                  Julio 2026
                 </div>
               </div>
               <div>
@@ -562,43 +675,74 @@ export default function TermsPage() {
         </div>
       </section>
 
+      {/* ACCEPTANCE BANNER */}
+      <section className="border-b border-rule px-6 py-10 md:px-10 md:py-12">
+        <div className="mx-auto max-w-5xl">
+          <FadeUp>
+            <div className="border border-gold bg-gold/5 p-6 md:p-8">
+              <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
+                — IMPORTANT
+              </div>
+              <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted">
+                Importante
+              </div>
+              <p className="mt-5 text-[15px] font-bold leading-[1.6] tracking-tight text-ink md:text-[16px]">
+                By making payment for any membership, plan, or service, the
+                Client declares that they have read and expressly, voluntarily,
+                and irrevocably accepted these terms in their entirety. Payment
+                constitutes electronic acceptance of this contract.
+              </p>
+              <p className="mt-2 text-[12px] italic leading-[1.6] tracking-tight text-muted md:text-[13px]">
+                Al realizar el pago de cualquier membresía, plan o servicio, el
+                Cliente declara haber leído y aceptado de forma expresa,
+                voluntaria e irrevocable la totalidad de estos términos. El pago
+                constituye la aceptación electrónica de este contrato.
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* SECTIONS */}
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-5xl">
-          {sections.map((sec, sIdx) => (
-            <FadeUp
-              key={sec.num}
-              delay={sIdx * 0.04}
-              className={
-                sIdx === 0
-                  ? "pb-16 md:pb-24"
-                  : "border-t border-rule py-16 md:py-24"
-              }
-            >
-              <div className="grid grid-cols-12 gap-6">
-                <div className="col-span-12 md:col-span-2">
-                  <div className="font-mono text-[12px] tracking-[0.3em] text-gold md:text-[13px]">
-                    {sec.num}
+          {sections.map((sec, sIdx) => {
+            const num = String(sIdx + 1).padStart(2, "0");
+            return (
+              <FadeUp
+                key={sIdx}
+                delay={sIdx * 0.04}
+                className={
+                  sIdx === 0
+                    ? "pb-16 md:pb-24"
+                    : "border-t border-rule py-16 md:py-24"
+                }
+              >
+                <div className="grid grid-cols-12 gap-6">
+                  <div className="col-span-12 md:col-span-2">
+                    <div className="font-mono text-[12px] tracking-[0.3em] text-gold md:text-[13px]">
+                      {num}
+                    </div>
                   </div>
-                </div>
-                <div className="col-span-12 md:col-span-10">
-                  <h2 className="display text-[7vw] leading-[1] md:text-[3vw]">
-                    {sec.titleEn}
-                  </h2>
-                  <div className="mt-1 text-[3.5vw] italic leading-[1.15] text-muted md:text-[1.4vw]">
-                    {sec.titleEs}
-                  </div>
+                  <div className="col-span-12 md:col-span-10">
+                    <h2 className="display text-[7vw] leading-[1] md:text-[3vw]">
+                      {sec.titleEn}
+                    </h2>
+                    <div className="mt-1 text-[3.5vw] italic leading-[1.15] text-muted md:text-[1.4vw]">
+                      {sec.titleEs}
+                    </div>
 
-                  {/* Blocks */}
-                  <div className="mt-10 space-y-8">
-                    {sec.blocks.map((b, i) => (
-                      <SectionBlock key={i} block={b} />
-                    ))}
+                    {/* Blocks */}
+                    <div className="mt-10 space-y-8">
+                      {sec.blocks.map((b, i) => (
+                        <SectionBlock key={i} block={b} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </FadeUp>
-          ))}
+              </FadeUp>
+            );
+          })}
 
           {/* CONTACT */}
           <FadeUp className="border-t border-rule py-16 md:py-24">
@@ -641,10 +785,10 @@ export default function TermsPage() {
                   </div>
                   <div>
                     <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
-                      WHATSAPP · NEO CAR ADVISOR
+                      WHATSAPP
                     </div>
                     <div className="font-mono text-[9px] italic tracking-[0.3em] text-muted">
-                      WhatsApp NEO Car Advisor
+                      WhatsApp
                     </div>
                     <motion.a
                       href="https://wa.me/14076490964"
@@ -714,6 +858,18 @@ function SectionBlock({ block }: { block: SubBlock }) {
         <div className="mt-1 font-mono text-[9px] italic tracking-[0.3em] text-muted md:text-[10px]">
           {block.es}
         </div>
+      </div>
+    );
+  }
+  if (block.type === "notice") {
+    return (
+      <div className="border border-gold bg-gold/5 p-6 md:p-7">
+        <p className="text-[14px] font-bold leading-[1.6] tracking-tight text-ink md:text-[15px]">
+          {block.en}
+        </p>
+        <p className="mt-2 text-[12px] italic leading-[1.6] tracking-tight text-muted md:text-[13px]">
+          {block.es}
+        </p>
       </div>
     );
   }
