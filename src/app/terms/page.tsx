@@ -351,13 +351,13 @@ const sections: Section[] = [
     ],
   },
   {
-    titleEn: "Non-Transferability",
-    titleEs: "No transferibilidad",
+    titleEn: "Transferability",
+    titleEs: "Transferibilidad",
     blocks: [
       {
         type: "paragraph",
-        en: "All memberships, plans, and advisory services are strictly personal and NON-TRANSFERABLE. The original holder may not transfer, assign, sell, or share their membership with any other person. The services are tied exclusively to the original purchaser and may only be used by them.",
-        es: "Todas las membresías, planes y servicios de asesoría son estrictamente personales y NO TRANSFERIBLES. El titular original no puede transferir, ceder, vender ni compartir su membresía con ninguna otra persona. Los servicios están vinculados exclusivamente al comprador original y solo pueden ser utilizados por este.",
+        en: "Memberships, plans, and advisory services are transferable, provided that the original holder notifies Jonathan López in advance of their intention to transfer the membership and identifies the person to whom it will be transferred. Once the transfer is approved and completed, the services become tied exclusively to the new holder and may only be used by them.",
+        es: "Las membresías, planes y servicios de asesoría son transferibles, siempre y cuando el titular original notifique a Jonathan López con antelación su intención de transferir la membresía e indique la persona a quien será transferida. Una vez aprobada y concretada la transferencia, los servicios quedan vinculados exclusivamente al nuevo titular y solo pueden ser utilizados por este.",
       },
     ],
   },
