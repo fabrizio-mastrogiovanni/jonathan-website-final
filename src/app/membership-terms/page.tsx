@@ -40,8 +40,8 @@ const sections: Section[] = [
         es: "Todas las membresías son no reembolsables. Al adquirir cualquier membresía, el cliente reconoce y acepta que no se emitirán reembolsos bajo ninguna circunstancia, incluyendo pero no limitado a terminación anticipada, cambio de opinión, o falta de uso de los servicios dentro del plazo establecido.",
       },
       {
-        en: "Memberships, plans, and advisory services are transferable, provided that the original purchaser notifies Jonathan López in advance of their intention to transfer the membership and identifies the person to whom it will be transferred. Once the transfer is approved and completed, the services become tied exclusively to the new holder and may only be used by them.",
-        es: "Las membresías, planes y servicios de asesoría son transferibles, siempre y cuando el comprador original notifique a Jonathan López con antelación su intención de transferir la membresía e indique la persona a quien será transferida. Una vez aprobada y concretada la transferencia, los servicios quedan vinculados exclusivamente al nuevo titular y solo pueden ser utilizados por este.",
+        en: "All memberships, plans, and advisory services are strictly personal and NON-TRANSFERABLE. The original purchaser may not transfer, assign, sell, or share their membership with any other person. The services are tied exclusively to the original purchaser and may only be used by them.",
+        es: "Todas las membresías, planes y servicios de asesoría son estrictamente personales y NO TRANSFERIBLES. El comprador original no puede transferir, ceder, vender ni compartir su membresía con ninguna otra persona. Los servicios están vinculados exclusivamente al comprador original y solo pueden ser utilizados por este.",
       },
       {
         en: "Services are provided by Jonathan López through his company SERVICE IA INC. and its associated platforms, including but not limited to the NEO Advisor AI chatbot and the NEO Credit Repair AI chatbot.",
