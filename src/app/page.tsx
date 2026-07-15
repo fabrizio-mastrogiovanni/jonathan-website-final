@@ -11,6 +11,7 @@ import { Editorial } from "@/components/sections/Editorial";
 import { HowItsBuilt } from "@/components/sections/HowItsBuilt";
 import { Merchandise } from "@/components/sections/Merchandise";
 import { Booking } from "@/components/sections/Booking";
+import { Reviews } from "@/components/sections/Reviews";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/Footer";
 
@@ -30,6 +31,7 @@ export default function Page() {
       <HowItsBuilt />
       <Merchandise />
       <Booking />
+      <Reviews />
       <CTA />
       <Footer />
     </main>
