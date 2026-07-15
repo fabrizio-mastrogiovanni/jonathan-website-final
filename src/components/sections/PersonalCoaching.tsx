@@ -27,29 +27,6 @@ interface Tier {
 
 const tiers: Tier[] = [
   {
-    key: "bronze",
-    labelEn: "BRONZE TIER",
-    labelEs: "Nivel Bronce",
-    nameEn: "Bronze",
-    nameEs: "Bronce",
-    price: "$799",
-    durationEn: "VALID FOR 3 MONTHS",
-    durationEs: "Válida por 3 meses",
-    benefits: [
-      {
-        en: "25-minute pre-negotiation advisory",
-        es: "Asesoría 25 minutos previa a la negociación",
-      },
-      {
-        en: "Negotiation until you buy the car",
-        es: "Negociación hasta que se compre el auto",
-      },
-    ],
-    ctaEn: "GET BRONZE →",
-    ctaEs: "Obtener Bronce",
-    href: "https://square.link/u/OEYHtbV1?src=sheet",
-  },
-  {
     key: "gold",
     labelEn: "GOLD TIER",
     labelEs: "Nivel Oro",
@@ -280,7 +257,7 @@ export function PersonalCoaching() {
                 duration={1.0}
                 stagger={0.05}
               >
-                Three tiers. One mission:
+                Two tiers. One mission:
               </SplitText>
               <br />
               <span className="text-gold">
@@ -297,7 +274,7 @@ export function PersonalCoaching() {
             </h2>
             <FadeUp delay={0.65} className="mt-5">
               <p className="text-[3vw] italic leading-[1.2] tracking-normal text-muted md:text-[1.4vw]">
-                Tres niveles. Una misión: tu mejor negocio.
+                Dos niveles. Una misión: tu mejor negocio.
               </p>
             </FadeUp>
             <FadeUp delay={0.85} className="mt-8">
@@ -314,7 +291,7 @@ export function PersonalCoaching() {
 
       {/* TIER CARDS */}
       <div className="px-6 pb-24 pt-20 md:px-10 md:pb-32 md:pt-28">
-        <div className="grid grid-cols-1 gap-px bg-rule md:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-px bg-rule md:grid-cols-2">
           {tiers.map((t, i) => (
             <TierCard key={t.key} tier={t} index={i} />
           ))}
@@ -357,7 +334,6 @@ export function PersonalCoaching() {
       <Marquee
         items={[
           "PERSONAL COACHING",
-          "BRONCE",
           "ORO",
           "DIAMANTE",
           "INTEGRITY SYSTEM",
