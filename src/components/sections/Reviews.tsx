@@ -4,7 +4,7 @@ import { SplitText } from "@/components/SplitText";
 import { FadeUp } from "@/components/FadeUp";
 import { motion } from "framer-motion";
 
-const GOOGLE_REVIEW_URL = "https://share.google/v5tPPVtwOQpA9zpj4";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CVdKPmFN5_I3EAI/review";
 
 /* Google "G" logo — inline SVG so it stays within the site's Content Security Policy */
 function GoogleG({ className = "h-5 w-5" }: { className?: string }) {
