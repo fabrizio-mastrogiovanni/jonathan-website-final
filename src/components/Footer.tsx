@@ -65,6 +65,12 @@ export function Footer() {
               NEO ADVISOR $99/YR
             </a>
             <a
+              href="/news"
+              className="text-paper transition-colors hover:text-gold"
+            >
+              THE BRIEF · NEWS
+            </a>
+            <a
               href="/coming-soon"
               className="text-paper transition-colors hover:text-gold"
             >

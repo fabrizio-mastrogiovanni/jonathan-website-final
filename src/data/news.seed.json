@@ -1,0 +1,135 @@
+{
+  "updatedAt": "2026-07-24T10:40:00-04:00",
+  "items": [
+    {
+      "id": "seed-jeep-0apr-2025",
+      "category": "marcas",
+      "categoryLabel": "Marcas · Financiamiento",
+      "titleEs": "Stellantis reactiva el 0% APR a 72 meses en el Jeep Grand Cherokee 2025",
+      "titleEn": "Stellantis brings back 0% APR for 72 months on the 2025 Jeep Grand Cherokee",
+      "whyEs": "Una de las ventanas de financiamiento más agresivas del trimestre — pero solo para crédito tier 1 y con letra chica en el precio. Aquí es exactamente donde una negociación bien llevada te ahorra miles.",
+      "source": "Stellantis Financial Services",
+      "url": "https://www.stellantis.com/en/news",
+      "publishedAt": "2026-07-24T09:00:00-04:00",
+      "expiresAt": "2026-07-31T23:59:00-04:00",
+      "lead": true
+    },
+    {
+      "id": "seed-ftc-cars-rule",
+      "category": "regulacion",
+      "categoryLabel": "Regulación · FTC",
+      "titleEs": "La regla CARS de la FTC supera el reto judicial: avanzan las reglas de transparencia en los dealers",
+      "titleEn": "FTC's CARS Rule clears its court challenge — dealer ad-transparency rules move ahead",
+      "whyEs": "Menos cargos sorpresa y letra chica en el dealer. Saber qué exige la ley es tu mejor escudo.",
+      "source": "Federal Trade Commission",
+      "url": "https://www.ftc.gov/news-events",
+      "publishedAt": "2026-07-24T08:10:00-04:00",
+      "expiresAt": "2026-10-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-irs-section-179",
+      "category": "irs",
+      "categoryLabel": "IRS",
+      "titleEs": "El IRS actualiza la Sección 179: vehículos de negocio de más de 6,000 lbs siguen calificando para deducción acelerada en 2025",
+      "titleEn": "IRS updates Section 179: business vehicles over 6,000 lbs still qualify for accelerated deduction in 2025",
+      "whyEs": "Si compras a nombre de tu compañía, esto puede valer decenas de miles en impuestos. Estructúralo bien.",
+      "source": "IRS Newsroom",
+      "url": "https://www.irs.gov/newsroom",
+      "publishedAt": "2026-07-23T15:30:00-04:00",
+      "expiresAt": "2026-12-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-apr-under-7",
+      "category": "financiamiento",
+      "categoryLabel": "Financiamiento",
+      "titleEs": "El APR promedio de préstamos de auto nuevo baja de 7% por primera vez en dos años",
+      "titleEn": "Average new-car loan APR slips under 7% for the first time in two years",
+      "whyEs": "La ventana para comprar mejora. Pero el APR que te dan en el dealer casi nunca es el mejor que calificas.",
+      "source": "Cox Automotive · Edmunds",
+      "url": "https://www.coxautoinc.com/market-insights/",
+      "publishedAt": "2026-07-23T11:00:00-04:00"
+    },
+    {
+      "id": "seed-toyota-19apr",
+      "category": "marcas",
+      "categoryLabel": "Marcas",
+      "titleEs": "Toyota Financial ofrece 1.9% APR en RAV4 y Camry 2025 hasta fin de mes",
+      "titleEn": "Toyota Financial posts 1.9% APR on the 2025 RAV4 and Camry through month-end",
+      "whyEs": "Tasa fuerte, pero se apila distinto según región y modelo. El truco está en cómo la combinas con el precio.",
+      "source": "Toyota Financial Services",
+      "url": "https://www.buyatoyota.com/",
+      "publishedAt": "2026-07-22T10:00:00-04:00",
+      "expiresAt": "2026-07-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-cu-rate-cut",
+      "category": "bancos",
+      "categoryLabel": "Bancos & Credit Unions",
+      "titleEs": "Navy Federal y PenFed bajan sus tasas de auto nuevo tras la señal de pausa de la Fed",
+      "titleEn": "Navy Federal and PenFed cut new-auto loan rates after the Fed signals a pause",
+      "whyEs": "Un credit union suele ganarle al financiamiento del dealer. Llega pre-aprobado y negocias desde arriba.",
+      "source": "Credit union rate sheets",
+      "url": "https://www.navyfederal.org/loans-cards/auto-loans.html",
+      "publishedAt": "2026-07-22T09:15:00-04:00"
+    },
+    {
+      "id": "seed-ram-cash",
+      "category": "marcas",
+      "categoryLabel": "Marcas",
+      "titleEs": "RAM apila $4,500 en bonos de efectivo en la RAM 1500 2024 para liquidar inventario",
+      "titleEn": "RAM stacks $4,500 in cash allowances on the 2024 RAM 1500 to clear inventory",
+      "whyEs": "Fin de año-modelo = el mejor momento para exprimir bonos. La unidad correcta importa tanto como el precio.",
+      "source": "RAM Incentives",
+      "url": "https://www.ramtrucks.com/offers.html",
+      "publishedAt": "2026-07-21T14:00:00-04:00",
+      "expiresAt": "2026-07-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-cfpb-negative-equity",
+      "category": "regulacion",
+      "categoryLabel": "Regulación · CFPB",
+      "titleEs": "La CFPB alerta sobre el aumento de equity negativo al arrastrar préstamos viejos a autos nuevos",
+      "titleEn": "CFPB flags rising negative equity as buyers roll old loans into new cars",
+      "whyEs": "Arrastrar deuda vieja al carro nuevo es una trampa silenciosa. Saber el número real te protege.",
+      "source": "Consumer Financial Protection Bureau",
+      "url": "https://www.consumerfinance.gov/about-us/newsroom/",
+      "publishedAt": "2026-07-21T09:00:00-04:00",
+      "expiresAt": "2026-10-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-honda-acura",
+      "category": "marcas",
+      "categoryLabel": "Marcas",
+      "titleEs": "Honda mantiene 2.9% APR en el CR-V 2025; Acura suma apoyo de lease en la MDX",
+      "titleEn": "Honda holds 2.9% APR on the 2025 CR-V; Acura adds lease support on the MDX",
+      "whyEs": "Lease vs. compra cambia todo el cálculo. Depende de tus millas y cuánto piensas quedarte el carro.",
+      "source": "American Honda Finance",
+      "url": "https://automobiles.honda.com/specials",
+      "publishedAt": "2026-07-20T10:30:00-04:00",
+      "expiresAt": "2026-07-31T23:59:00-04:00"
+    },
+    {
+      "id": "seed-nada-atp",
+      "category": "mercado",
+      "categoryLabel": "Mercado · NADA",
+      "titleEs": "NADA: el precio promedio de transacción de autos nuevos baja a $47,300 con el regreso de incentivos",
+      "titleEn": "NADA: new-vehicle average transaction price eases to $47,300 as incentives return",
+      "whyEs": "El mercado se está enfriando a favor del comprador. Es temporada de negociar, no de aceptar el sticker.",
+      "source": "National Automobile Dealers Association",
+      "url": "https://www.nada.org/nada/market-insights",
+      "publishedAt": "2026-07-19T12:00:00-04:00"
+    },
+    {
+      "id": "seed-chevy-silverado",
+      "category": "financiamiento",
+      "categoryLabel": "Financiamiento",
+      "titleEs": "Chevrolet combina 0.9% APR con bono de lealtad en la Silverado 1500 2025",
+      "titleEn": "Chevrolet pairs 0.9% APR with loyalty cash on the 2025 Silverado 1500",
+      "whyEs": "Cuando la marca combina tasa baja + bono, hay que decidir cuál conviene. No siempre es el 0%.",
+      "source": "GM Financial",
+      "url": "https://www.chevrolet.com/deals-incentives",
+      "publishedAt": "2026-07-19T09:00:00-04:00",
+      "expiresAt": "2026-07-31T23:59:00-04:00"
+    }
+  ]
+}
