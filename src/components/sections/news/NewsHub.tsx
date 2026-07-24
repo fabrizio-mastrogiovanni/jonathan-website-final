@@ -112,8 +112,8 @@ export function NewsHub({ feed }: { feed: NewsFeed }) {
         </Link>
       </header>
 
-      {/* Preview notice — only while showing seed data (no live feed yet) */}
-      {feed.preview && (
+      {/* Preview notice — only while showing seed data (design review) */}
+      {feed.preview && !feed.awaiting && (
         <div className="border-b border-gold/30 bg-gold/10 px-6 py-2.5 text-center font-mono text-[9px] uppercase tracking-[0.24em] text-gold md:px-10">
           Vista previa · contenido de ejemplo — el feed en vivo se activa con el
           pipeline diario
@@ -178,8 +178,8 @@ export function NewsHub({ feed }: { feed: NewsFeed }) {
               />
               <MetaCell
                 k="En portada / Live now"
-                v={`${feed.items.length}`}
-                sub="historias"
+                v={feed.awaiting ? "Muy pronto" : `${feed.items.length}`}
+                sub={feed.awaiting ? "· soon" : "historias"}
               />
               <MetaCell
                 k="Se recicla / Auto-refresh"
@@ -191,6 +191,10 @@ export function NewsHub({ feed }: { feed: NewsFeed }) {
         </div>
       </section>
 
+      {feed.awaiting && <AwaitingPanel />}
+
+      {!feed.awaiting && (
+      <>
       {/* FILTERS */}
       <nav
         aria-label="Categorías"
@@ -302,11 +306,55 @@ export function NewsHub({ feed }: { feed: NewsFeed }) {
           </motion.div>
         </Rise>
       </section>
+      </>
+      )}
 
       <div className="border-t border-rule px-6 py-6 text-center font-mono text-[10px] tracking-[0.3em] text-muted md:px-10">
         © 2026 — JONATHAN LÓPEZ · THE BRIEF · CAR BUSINESS INTELLIGENCE
       </div>
     </main>
+  );
+}
+
+function AwaitingPanel() {
+  return (
+    <section className="mx-auto w-full max-w-5xl px-6 py-24 text-center md:px-10 md:py-32">
+      <Rise>
+        <div className="font-mono text-[10px] tracking-[0.3em] text-gold">
+          — PRÓXIMAMENTE / COMING ONLINE
+        </div>
+        <h2 className="display mx-auto mt-6 max-w-[20ch] text-[9vw] leading-[1.02] md:text-[3.6vw]">
+          The Brief se activa muy pronto.
+        </h2>
+        <p className="mx-auto mt-4 max-w-[46ch] text-[4vw] italic leading-[1.3] text-muted md:text-[1.4vw]">
+          Noticias del car business —financiamiento, marcas, FTC, IRS, bancos y
+          credit unions— curadas y traducidas cada día. Vuelve pronto.
+        </p>
+        <p className="mx-auto mt-3 max-w-[46ch] text-[13px] italic text-muted/70">
+          The car-business desk goes live daily. Check back soon.
+        </p>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="mt-10 inline-block"
+        >
+          <a
+            href="https://square.link/u/o2e9grla?src=news-soon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex flex-col items-center gap-1 bg-gold px-10 py-5 text-paper transition-colors hover:bg-goldBright"
+          >
+            <span className="font-mono text-[11px] tracking-[0.3em]">
+              HABLA CON JONATHAN →
+            </span>
+            <span className="font-mono text-[9px] italic tracking-[0.3em] opacity-75">
+              Talk to Jonathan
+            </span>
+          </a>
+        </motion.div>
+      </Rise>
+    </section>
   );
 }
 

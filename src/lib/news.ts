@@ -49,8 +49,10 @@ export interface NewsItem {
 export interface NewsFeed {
   updatedAt: string;
   items: NewsItem[];
-  /** True when the page is showing committed seed data (no live feed yet). */
+  /** True when the page is NOT showing the live feed (seed preview or awaiting). */
   preview?: boolean;
+  /** True in production before the live feed exists — render the "activándose" state. */
+  awaiting?: boolean;
 }
 
 export interface CategoryDef {
@@ -97,20 +99,30 @@ function normalize(feed: NewsFeed, preview: boolean): NewsFeed {
  */
 export async function getNews(): Promise<NewsFeed> {
   const url = process.env.NEWS_FEED_URL;
-  let feed = seed as NewsFeed;
-  let preview = true;
 
+  // 1) Live feed configured → use it (any environment).
   if (url) {
     try {
       const res = await fetch(url, { next: { revalidate: 900 } });
       if (res.ok) {
-        feed = (await res.json()) as NewsFeed;
-        preview = false;
+        return normalize((await res.json()) as NewsFeed, false);
       }
     } catch {
-      // network/parse error → keep seed (stays in preview mode)
+      // fall through to the no-feed handling below
     }
   }
 
-  return normalize(feed, preview);
+  // 2) No live feed yet. In PRODUCTION we must never show fabricated sample news,
+  //    so render a polished "activándose" state. In preview/dev we show the seed
+  //    so the design can be reviewed populated.
+  if (process.env.VERCEL_ENV === "production") {
+    return {
+      updatedAt: new Date().toISOString(),
+      items: [],
+      preview: true,
+      awaiting: true,
+    };
+  }
+
+  return normalize(seed as NewsFeed, true);
 }
