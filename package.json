@@ -10,6 +10,7 @@
     "generate-frames": "node scripts/generate-frames.mjs"
   },
   "dependencies": {
+    "@vercel/blob": "^2.6.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.0",
     "gsap": "^3.12.5",
