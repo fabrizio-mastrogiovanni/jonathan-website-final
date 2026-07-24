@@ -28,6 +28,9 @@ export function Nav() {
           <a href="#servicios" className="transition-opacity hover:opacity-60">
             SERVICES
           </a>
+          <a href="/news" className="transition-opacity hover:opacity-60">
+            THE BRIEF
+          </a>
           <a
             href="#testimonios"
             className="transition-opacity hover:opacity-60"

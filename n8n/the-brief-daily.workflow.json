@@ -1,0 +1,120 @@
+{
+  "name": "The Brief — Daily Car Business News",
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "days", "triggerAtHour": 6, "triggerAtMinute": 30 }]
+        }
+      },
+      "id": "node-schedule",
+      "name": "Daily 06:30 ET",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://news.google.com/rss/search?q=(Jeep%20OR%20RAM%20OR%20Chevrolet%20OR%20Ford%20OR%20Toyota%20OR%20Honda%20OR%20Acura)%20(financing%20OR%20APR%20OR%20incentive)%20OR%20(FTC%20dealer)%20OR%20(IRS%20vehicle%20deduction)%20OR%20(credit%20union%20auto%20loan%20rate)&hl=en-US&gl=US&ceid=US:en",
+        "options": {}
+      },
+      "id": "node-rss",
+      "name": "Google News RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.1,
+      "position": [220, 300],
+      "notes": "Add more rssFeedRead nodes (FTC, IRS, CFPB, NADA) + a Merge node to widen coverage. See docs/news-pipeline.md §4."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Dedupe by title, trim to the freshest ~40 candidates for the AI editor.\nconst seen = new Set();\nconst rows = [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  const title = (j.title || '').trim();\n  const key = title.toLowerCase();\n  if (!title || seen.has(key)) continue;\n  seen.add(key);\n  rows.push({ title, link: j.link || j.guid || '', source: (j.creator || j.source || 'News'), isoDate: j.isoDate || j.pubDate || '' });\n}\nrows.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));\nreturn [{ json: { candidates: rows.slice(0, 40) } }];"
+      },
+      "id": "node-dedupe",
+      "name": "Dedupe & Trim",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5', max_tokens: 4000, system: \"You are the editor of 'The Brief', Jonathan Lopez's car-business news desk. Keep ONLY items useful to a U.S. car buyer or the car business (financing specials by brand, credit-union/bank rates, FTC/CFPB/IRS regulation, market trends). Discard opinion, ads, duplicates. For each kept item output an object with EXACTLY: id (kebab slug), category (one of financiamiento|marcas|regulacion|irs|bancos|mercado), categoryLabel (short display label), titleEs (Spanish headline), titleEn (English headline), whyEs (one Spanish sentence, why it matters, tie to negotiating a better deal), source, url, publishedAt (ISO). SUMMARIZE, never copy text. Do NOT invent numbers/APRs/prices not present in the source. Return ONLY a JSON array of 8-14 items.\", messages: [{ role: 'user', content: 'Raw headlines JSON:\\n' + JSON.stringify($json.candidates) }] }) }}",
+        "options": {}
+      },
+      "id": "node-claude",
+      "name": "Claude — Curate & Translate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [660, 300],
+      "notes": "Set ANTHROPIC_API_KEY in n8n env. Model claude-sonnet-5 is a good cost/quality fit for daily curation."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Claude's JSON array, assemble the NewsFeed, set expiries, pick a lead.\nconst raw = $json.content?.[0]?.text ?? '[]';\nlet items;\ntry { items = JSON.parse(raw.slice(raw.indexOf('['), raw.lastIndexOf(']') + 1)); }\ncatch (e) { items = []; }\n\nconst now = new Date();\nconst endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59).toISOString();\nconst plus90 = new Date(now.getTime() + 90 * 864e5).toISOString();\n\nitems = items.map((it) => ({\n  ...it,\n  publishedAt: it.publishedAt || now.toISOString(),\n  expiresAt: it.expiresAt || (['financiamiento', 'marcas'].includes(it.category) ? endOfMonth : plus90),\n}));\nitems.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));\nitems = items.slice(0, 30);\nif (items.length && !items.some((i) => i.lead)) items[0].lead = true;\n\nconst feed = { updatedAt: now.toISOString(), items };\nreturn [{ json: { feed, body: JSON.stringify(feed) } }];"
+      },
+      "id": "node-assemble",
+      "name": "Assemble Feed",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://blob.vercel-storage.com/news/feed.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "authorization", "value": "=Bearer {{ $env.BLOB_READ_WRITE_TOKEN }}" },
+            { "name": "x-content-type", "value": "application/json" },
+            { "name": "x-add-random-suffix", "value": "0" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json.body }}",
+        "options": {}
+      },
+      "id": "node-upload",
+      "name": "Upload to Vercel Blob",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1100, 300],
+      "notes": "Stable path news/feed.json (x-add-random-suffix: 0) keeps NEWS_FEED_URL constant. Response .url is the public URL."
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.jonathanlopez.com/api/revalidate-news?secret={{ $env.REVALIDATE_SECRET }}",
+        "options": {}
+      },
+      "id": "node-revalidate",
+      "name": "Revalidate /news",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1320, 300]
+    }
+  ],
+  "connections": {
+    "Daily 06:30 ET": { "main": [[{ "node": "Google News RSS", "type": "main", "index": 0 }]] },
+    "Google News RSS": { "main": [[{ "node": "Dedupe & Trim", "type": "main", "index": 0 }]] },
+    "Dedupe & Trim": { "main": [[{ "node": "Claude — Curate & Translate", "type": "main", "index": 0 }]] },
+    "Claude — Curate & Translate": { "main": [[{ "node": "Assemble Feed", "type": "main", "index": 0 }]] },
+    "Assemble Feed": { "main": [[{ "node": "Upload to Vercel Blob", "type": "main", "index": 0 }]] },
+    "Upload to Vercel Blob": { "main": [[{ "node": "Revalidate /news", "type": "main", "index": 0 }]] }
+  }
+}
